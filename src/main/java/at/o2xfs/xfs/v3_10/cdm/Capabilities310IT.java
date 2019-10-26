@@ -15,4 +15,5 @@ public class Capabilities310IT extends Base310IT {
 	}
 
 	private native byte[] createDefault();
+
 }

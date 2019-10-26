@@ -3,9 +3,9 @@ package at.o2xfs.xfs.v3.cdm;
 import org.junit.jupiter.api.Test;
 
 import at.o2xfs.memory.impl.win32.Address;
-import at.o2xfs.xfs.v3.BaseIT;
+import at.o2xfs.xfs.v3.Base3IT;
 
-public class Capabilities3IT extends BaseIT {
+public class Capabilities3IT extends Base3IT {
 
 	@Test
 	public void test() {
@@ -15,4 +15,5 @@ public class Capabilities3IT extends BaseIT {
 	}
 
 	private native byte[] createDefault();
+
 }
