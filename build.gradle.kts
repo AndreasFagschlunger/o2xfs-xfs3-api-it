@@ -46,6 +46,9 @@ repositories {
         }
     }
     maven {
+        url = uri("https://oss.sonatype.org/content/repositories/snapshots")
+    }
+    maven {
         url = uri("https://repo.fagschlunger.co.at/libs-release-local")
     }
     mavenCentral()
