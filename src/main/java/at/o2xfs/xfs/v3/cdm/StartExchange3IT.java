@@ -5,17 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import at.o2xfs.memory.impl.win32.Address;
-import at.o2xfs.xfs.cdm.Position;
+import at.o2xfs.xfs.cdm.ExchangeType;
 import at.o2xfs.xfs.v3.Base3IT;
 
-public class PhysicalCu3IT extends Base3IT {
+public class StartExchange3IT extends Base3IT {
 
 	@Test
 	public void test() {
-		PhysicalCu3 expected = new PhysicalCu3.Builder().emptyAll(true).position(Position.TOP)
-				.physicalPositionName("BIN3").build();
+		StartExchange3 expected = new StartExchange3.Builder().exchangeType(ExchangeType.BYHAND).tellerId(0)
+				.cashUnitNumbers(1, 2, 3).build();
 		Address address = Address.build(createDefault());
-		PhysicalCu3 actual = mapper.read(memorySystem.dereference(address), PhysicalCu3.class);
+		StartExchange3 actual = mapper.read(memorySystem.dereference(address), StartExchange3.class);
 		System.out.println(actual);
 		assertEquals(expected, actual);
 	}

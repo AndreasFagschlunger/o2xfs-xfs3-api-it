@@ -8,15 +8,14 @@ import at.o2xfs.memory.impl.win32.Address;
 import at.o2xfs.xfs.util.StandardCurrencyIds;
 import at.o2xfs.xfs.v3.Base3IT;
 
-public class TellerTotals3IT extends Base3IT {
+public class Denominate3IT extends Base3IT {
 
 	@Test
 	public void test() {
-		TellerTotals3 expected = new TellerTotals3.Builder().currencyId(StandardCurrencyIds.USD).itemsReceived(1L)
-				.itemsDispensed(2L).coinsReceived(3L).coinsDispensed(4L).cashBoxReceived(5L).cashBoxDispensed(6L)
-				.build();
+		Denominate3 expected = new Denominate3.Builder().denomination(new Denomination3.Builder()
+				.currencyId(StandardCurrencyIds.EUR).amount(1234L).values(1, 2, 3).cashBox(456L).build()).build();
 		Address address = Address.build(createDefault());
-		TellerTotals3 actual = mapper.read(memorySystem.dereference(address), TellerTotals3.class);
+		Denominate3 actual = mapper.read(memorySystem.dereference(address), Denominate3.class);
 		System.out.println(actual);
 		assertEquals(expected, actual);
 	}
