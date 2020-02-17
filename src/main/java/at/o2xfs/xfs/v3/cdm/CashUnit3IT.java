@@ -18,7 +18,7 @@ public class CashUnit3IT extends Base3IT {
 		CashUnit3 expected = new CashUnit3.Builder().number(3).type(Type.BILLCASSETTE)
 				.unitId(UnitId.of('E', 'U', 'R', ' ', 'B')).currencyId(StandardCurrencyIds.EUR).values(10L)
 				.initialCount(1000L).count(376L).rejectCount(6).status(Status.OK)
-				.addPhysical(
+				.addPhysicalCashUnits(
 						new PhysicalCashUnit3.Builder().physicalPositionName("BIN1")
 								.unitId(UnitId.of('E', 'U', 'R', ' ', 'B')).initialCount(500).count(0).rejectCount(1)
 								.status(Status.LOW).hardwareSensor(true).build(),
