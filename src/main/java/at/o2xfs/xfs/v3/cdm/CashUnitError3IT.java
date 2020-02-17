@@ -20,7 +20,7 @@ public class CashUnitError3IT extends Base3IT {
 				.number(1).type(Type.BILLCASSETTE).unitId(UnitId.of('0', '0', '0', '0', '1'))
 				.currencyId(StandardCurrencyIds.EUR).values(10000L).initialCount(100).count(98).rejectCount(1)
 				.status(Status.INOP)
-				.addPhysical(
+				.addPhysicalCashUnits(
 						new PhysicalCashUnit3.Builder().physicalPositionName("SLOT1")
 								.unitId(UnitId.of('0', '0', '0', '0', '1')).maximum(50).status(Status.OK).build(),
 						new PhysicalCashUnit3.Builder().physicalPositionName("SLOT2")

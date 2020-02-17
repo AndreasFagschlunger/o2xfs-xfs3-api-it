@@ -6,6 +6,6 @@ import at.o2xfs.xfs.BaseIT;
 public abstract class Base310IT extends BaseIT {
 
 	static {
-		Library.loadLibrary("o2xfs-xfs310-api-it");
+		Library.loadLibrary("o2xfs-xfs310-api-it-bin");
 	}
 }
