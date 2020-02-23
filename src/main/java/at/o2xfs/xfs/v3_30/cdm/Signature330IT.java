@@ -5,17 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import at.o2xfs.memory.impl.win32.Address;
-import at.o2xfs.xfs.util.StandardCurrencyIds;
 import at.o2xfs.xfs.v3_30.Base330IT;
 
-public class BlacklistElement330IT extends Base330IT {
+public class Signature330IT extends Base330IT {
 
 	@Test
 	public void test() {
-		BlacklistElement330 expected = new BlacklistElement330.Builder().serialNumber("S8H9231654")
-				.currencyId(StandardCurrencyIds.GBP).value(500).build();
+		Signature330 expected = new Signature330.Builder().data("TEST".getBytes()).build();
 		Address address = Address.build(createDefault());
-		BlacklistElement330 actual = mapper.read(memorySystem.dereference(address), BlacklistElement330.class);
+		Signature330 actual = mapper.read(memorySystem.dereference(address), Signature330.class);
 		System.out.println(actual);
 		assertEquals(expected, actual);
 	}

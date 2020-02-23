@@ -1,4 +1,4 @@
-package at.o2xfs.xfs.v3_20.cdm;
+package at.o2xfs.xfs.v3_30.cdm;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,21 +8,23 @@ import org.junit.jupiter.api.Test;
 
 import at.o2xfs.memory.impl.win32.Address;
 import at.o2xfs.xfs.XfsServiceClass;
+import at.o2xfs.xfs.cdm.CdmExecuteCommand;
 import at.o2xfs.xfs.cdm.CdmType;
 import at.o2xfs.xfs.cdm.ExchangeType;
 import at.o2xfs.xfs.cdm.GuidLight;
+import at.o2xfs.xfs.cdm.ItemInfoType;
 import at.o2xfs.xfs.cdm.MoveItem;
 import at.o2xfs.xfs.cdm.Position;
 import at.o2xfs.xfs.cdm.RetractArea;
 import at.o2xfs.xfs.cdm.RetractStackerAction;
 import at.o2xfs.xfs.cdm.RetractTransportAction;
-import at.o2xfs.xfs.v3_20.Base320IT;
+import at.o2xfs.xfs.v3_30.Base330IT;
 
-public class Capabilities320IT extends Base320IT {
+public class Capabilities330IT extends Base330IT {
 
 	@Test
 	public void test() {
-		Capabilities320 expected = new Capabilities320.Builder().serviceClass(XfsServiceClass.CDM)
+		Capabilities330 expected = new Capabilities330.Builder().serviceClass(XfsServiceClass.CDM)
 				.type(CdmType.SELFSERVICEBILL).maxDispenseItems(40).shutter(true)
 				.addRetractArea(RetractArea.RETRACT, RetractArea.TRANSPORT, RetractArea.REJECT)
 				.addRetractTransportAction(RetractTransportAction.PRESENT, RetractTransportAction.RETRACT,
@@ -35,9 +37,13 @@ public class Capabilities320IT extends Base320IT {
 				.setGuidLights(0,
 						EnumSet.of(GuidLight.SLOW_FLASH, GuidLight.QUICK_FLASH, GuidLight.RED, GuidLight.GREEN))
 				.setGuidLights(31, EnumSet.of(GuidLight.SLOW_FLASH, GuidLight.MEDIUM_FLASH, GuidLight.CONTINUOUS))
-				.prepareDispense(true).antiFraudModule(true).build();
+				.prepareDispense(true).antiFraudModule(true)
+				.addItemInfoTypes(ItemInfoType.IMAGEFILE, ItemInfoType.SERIALNUMBER).blacklist(true)
+				.addSynchronizableCommands(CdmExecuteCommand.DISPENSE, CdmExecuteCommand.PRESENT,
+						CdmExecuteCommand.REJECT, CdmExecuteCommand.RETRACT)
+				.build();
 		Address address = Address.build(createDefault());
-		Capabilities320 actual = mapper.read(memorySystem.dereference(address), Capabilities320.class);
+		Capabilities330 actual = mapper.read(memorySystem.dereference(address), Capabilities330.class);
 		System.out.println(actual);
 		assertEquals(expected, actual);
 	}
