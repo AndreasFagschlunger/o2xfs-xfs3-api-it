@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-import at.o2xfs.memory.impl.win32.Address;
+import at.o2xfs.memory.core.Address;
 import at.o2xfs.xfs.cdm.ItemLocation;
 import at.o2xfs.xfs.cdm.Level;
 import at.o2xfs.xfs.cdm.OnBlacklist;

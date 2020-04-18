@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import at.o2xfs.memory.impl.win32.Address;
-import at.o2xfs.xfs.XfsServiceClass;
+import at.o2xfs.memory.core.Address;
+import at.o2xfs.xfs.api.XfsServiceClass;
 import at.o2xfs.xfs.cdm.CdmType;
 import at.o2xfs.xfs.cdm.ExchangeType;
 import at.o2xfs.xfs.cdm.MoveItem;

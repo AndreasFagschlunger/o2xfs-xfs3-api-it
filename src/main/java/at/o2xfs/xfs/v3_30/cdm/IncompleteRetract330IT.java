@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import at.o2xfs.memory.impl.win32.Address;
+import at.o2xfs.memory.core.Address;
 import at.o2xfs.xfs.cdm.IncompleteRetractReason;
 import at.o2xfs.xfs.util.StandardCurrencyIds;
 import at.o2xfs.xfs.v3_20.cdm.ItemNumber320;

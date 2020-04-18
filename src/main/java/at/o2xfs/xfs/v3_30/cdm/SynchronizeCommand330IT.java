@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import at.o2xfs.memory.core.Address;
 import at.o2xfs.memory.databind.ReadableMemory;
-import at.o2xfs.memory.impl.win32.Address;
 import at.o2xfs.xfs.cdm.CdmExecuteCommand;
 import at.o2xfs.xfs.cdm.Position;
 import at.o2xfs.xfs.databind.deser.XfsEnum32Deserializer;
