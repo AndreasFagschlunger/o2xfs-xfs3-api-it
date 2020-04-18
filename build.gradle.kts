@@ -34,8 +34,10 @@ group = "at.o2xfs"
 version = "1.0-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_13
+    targetCompatibility = JavaVersion.VERSION_13
+    withJavadocJar()
+    withSourcesJar()
 }
 
 repositories {
@@ -57,19 +59,9 @@ repositories {
 dependencies {
     api("at.o2xfs:o2xfs-xfs3-api:1.0-SNAPSHOT")
     implementation("at.o2xfs:o2xfs-memory-impl:1.0-SNAPSHOT")
-    implementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
+    implementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
     runtimeOnly("at.o2xfs:o2xfs-xfs3-api-it-bin:1.0-SNAPSHOT")
-    runtimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
-}
-
-tasks.register<Jar>("sourcesJar") {
-    archiveClassifier.set("sources")
-    from(sourceSets.main.get().allJava)
-}
-
-tasks.register<Jar>("javadocJar") {
-    archiveClassifier.set("javadoc")
-    from(tasks.javadoc.get().destinationDir)
+    runtimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
 }
 
 tasks.named<Test>("test") {
@@ -80,9 +72,6 @@ publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
-
-            artifact(tasks["sourcesJar"])
-            artifact(tasks["javadocJar"])
         }
     }
 

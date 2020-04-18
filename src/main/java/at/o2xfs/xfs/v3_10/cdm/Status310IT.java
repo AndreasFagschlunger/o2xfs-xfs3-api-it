@@ -6,7 +6,7 @@ import java.util.EnumSet;
 
 import org.junit.jupiter.api.Test;
 
-import at.o2xfs.memory.impl.win32.Address;
+import at.o2xfs.memory.core.Address;
 import at.o2xfs.xfs.cdm.Device;
 import at.o2xfs.xfs.cdm.Dispenser;
 import at.o2xfs.xfs.cdm.GuidLight;
@@ -26,7 +26,7 @@ public class Status310IT extends Base310IT {
 	public void test() {
 		Status310 expected = new Status310.Builder().device(Device.ONLINE).safeDoor(SafeDoor.CLOSED)
 				.dispenser(Dispenser.OK).intermediateStacker(IntermediateStacker.EMPTY)
-				.addPosition(new OutputPosition3.Builder().position(Position.FRONT).shutter(Shutter.CLOSED)
+				.addPositions(new OutputPosition3.Builder().position(Position.FRONT).shutter(Shutter.CLOSED)
 						.positionStatus(PositionStatus.EMPTY).transport(Transport.OK)
 						.transportStatus(TransportStatus.EMPTY).build())
 				.putExtra("Key1", "Value1").putExtra("Key2", "Value2")
